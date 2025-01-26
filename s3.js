@@ -667,8 +667,12 @@ async function checkAndImportBackup() {
     const awsConfig = {
       accessKeyId: awsAccessKey,
       secretAccessKey: awsSecretKey,
-      region: awsRegion,
       s3ForcePathStyle: s3ForcePathStyle
+    }
+
+    // Only add region if s3ForcePathStyle is false
+    if (!s3ForcePathStyle && awsRegion) {
+      awsConfig.region = awsRegion
     }
 
     if (awsEndpoint) {
@@ -1016,8 +1020,12 @@ async function backupToS3() {
   const awsConfig = {
     accessKeyId: awsAccessKey,
     secretAccessKey: awsSecretKey,
-    region: awsRegion,
     s3ForcePathStyle: s3ForcePathStyle
+  }
+
+  // Only add region if s3ForcePathStyle is false
+  if (!s3ForcePathStyle && awsRegion) {
+    awsConfig.region = awsRegion
   }
 
   if (awsEndpoint) {
@@ -1201,8 +1209,12 @@ async function importFromS3() {
   const awsConfig = {
     accessKeyId: awsAccessKey,
     secretAccessKey: awsSecretKey,
-    region: awsRegion,
     s3ForcePathStyle: s3ForcePathStyle
+  }
+
+  // Only add region if s3ForcePathStyle is false
+  if (!s3ForcePathStyle && awsRegion) {
+    awsConfig.region = awsRegion
   }
 
   if (awsEndpoint) {
@@ -1304,8 +1316,12 @@ async function validateAwsCredentials(bucketName, accessKey, secretKey) {
   const awsConfig = {
     accessKeyId: accessKey,
     secretAccessKey: secretKey,
-    region: awsRegion,
     s3ForcePathStyle: s3ForcePathStyle
+  }
+
+  // Only add region if s3ForcePathStyle is false
+  if (!s3ForcePathStyle && awsRegion) {
+    awsConfig.region = awsRegion
   }
 
   if (awsEndpoint) {
@@ -1353,8 +1369,12 @@ async function handleBackupFiles() {
   const awsConfig = {
     accessKeyId: awsAccessKey,
     secretAccessKey: awsSecretKey,
-    region: awsRegion,
     s3ForcePathStyle: s3ForcePathStyle
+  }
+
+  // Only add region if s3ForcePathStyle is false
+  if (!s3ForcePathStyle && awsRegion) {
+    awsConfig.region = awsRegion
   }
 
   if (awsEndpoint) {
